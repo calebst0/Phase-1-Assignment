@@ -1,24 +1,32 @@
+import { AppBar, Button, Toolbar  } from '@material-ui/core';
 import * as React from 'react';
-import { Nav, Navbar, NavItem } from 'react-bootstrap';
-import { IndexLinkContainer } from "react-router-bootstrap";
 import { Link } from 'react-router-dom';
 
-export const Header: React.StatelessComponent<{}> = () => {
+
+const styles = ({
+    button: 
+    {
+        color: 'primary',
+        fullWidth: 'false',
+        margin:10,
+        padding: 10,
+        size: 'large',
+    }
+  });
+  
+  const Header: React.StatelessComponent<{}> = () =>{
+
     return (
-        <Navbar>
-            <Navbar.Header>
-                <Navbar.Brand>
-                    <Link to="/">dankNotDank</Link>
-                </Navbar.Brand>
-            </Navbar.Header>
-            <Nav>
-                <IndexLinkContainer to="/FirstComponent">
-                    <NavItem>Page 1</NavItem>
-                </IndexLinkContainer>
-                <IndexLinkContainer to="/SecondComponent">
-                    <NavItem>Page 2</NavItem>
-                </IndexLinkContainer>
-            </Nav>
-        </Navbar>
+    <div>
+    <AppBar position="static">
+        <Toolbar variant="dense">
+            <Link style={{color: "white"}} to="/"><Button style={styles.button} variant='contained'> Home </Button></Link>  
+            {/* <Link to="/FirstComponent"> <Button style={styles.button} variant='contained'> GE </Button> </Link> */}
+            <Link to="/SecondComponent"> <Button style={styles.button} variant='contained'> Hiscores </Button> </Link>
+        </Toolbar>
+    </AppBar>
+    </div>
     );
 }
+
+export default Header;

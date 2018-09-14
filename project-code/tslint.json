@@ -6,5 +6,12 @@
       "node_modules/**/*.ts",
       "coverage/lcov-report/*.js"
     ]
-  }
+  },
+    "type": "string",
+    "enum": [
+      "ignore-case",
+      "match-declaration-order",
+      "shorthand-first"
+      
+    ]
 }
