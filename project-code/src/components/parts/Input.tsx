@@ -1,39 +1,12 @@
-// import { FormControl } from '@material-ui/core';
-import TextField from '@material-ui/core/TextField';
-// import * as PropTypes from 'prop-types';
-import * as React from 'react';
+import * as React from "react";
 
-class ComposedTextField extends React.Component {
-  public state = {
-      name: '',
-  };
+const Input = (props:any) => (
 
-  public handleChange = (event:any) => {
-    this.setState({ input: event.target.value });
-  };
+	<form onSubmit={props.getItem}>
+		<input type="integer" name="itemname" placeholder="Item" />
+		<div className='centreText'><button>Find Item</button></div>
+	</form>
 
-  public render() {
-    
-    return (
-      <form >
-            <TextField
-            id="full-width"
-            label="Item"
-            name="input"
-            InputLabelProps={{
-              shrink: true,
-            }}
-            placeholder="Item:"
-            helperText="Enter a GE Item"
-            margin="normal"
-            value={this.state.name}
-            onChange={this.getItem}
-            />
-            
-      </form>
-      
-    );
-  }
-}
+);
 
-export default ComposedTextField;
+export default Input;

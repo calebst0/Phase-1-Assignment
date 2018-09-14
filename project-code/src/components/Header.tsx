@@ -21,7 +21,7 @@ const styles = ({
     <AppBar position="static">
         <Toolbar variant="dense">
             <Link style={{color: "white"}} to="/"><Button style={styles.button} variant='contained'> Home </Button></Link>  
-            {/* <Link to="/FirstComponent"> <Button style={styles.button} variant='contained'> GE </Button> </Link> */}
+            <Link to="/GEPage"> <Button style={styles.button} variant='contained'> GEPage </Button> </Link>
             <Link to="/SecondComponent"> <Button style={styles.button} variant='contained'> Hiscores </Button> </Link>
         </Toolbar>
     </AppBar>

@@ -1,9 +1,5 @@
 import * as React from "react";
 
-import FirstComponent from './components/parts/FirstComponent';
-import Input from './components/parts/Input';
-
-
 class App extends React.Component {
 
     public state = {
@@ -46,9 +42,8 @@ class App extends React.Component {
 
   public render() {
     return (
-    <div>
-      <div className='centreText'><Input /></div>
-      <FirstComponent/>
+    <div className='centreText'>
+      Home page of the site     
     </div>
     );
   }

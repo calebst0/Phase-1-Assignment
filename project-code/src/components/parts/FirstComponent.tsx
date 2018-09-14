@@ -1,6 +1,5 @@
 import { Paper, Table, TableBody, TableCell, TableHead, TableRow, Typography } from "@material-ui/core";
 import { createStyles, withStyles  } from '@material-ui/core/styles';
-// import * as PropTypes from 'prop-types';
 import * as React from "react";
 
 const styles  = (theme:any) => createStyles({
@@ -21,7 +20,20 @@ function FirstComponent(props:any) {
   const { classes } = props;
   
   return (
-  <div className="centreText">  
+  /*<div>
+    <p>item id: <span>{props.id}</span> </p>
+    <p>name: <span>{props.name}</span> </p>
+    <p>members: <span>{props.members}</span> </p>
+    <p>price: <span>{props.price}</span> </p>
+    <p>day trend: <span>{props.dayTrend}</span> </p>
+    <p>30 day trend: <span>{props.day30}</span> </p>
+  </div>*/
+  
+  
+  
+  
+  
+    <div className="centreText">  
     <Paper className={classes.root}>
       <Table className={classes.table} >
         <TableHead>
@@ -35,11 +47,12 @@ function FirstComponent(props:any) {
           </TableRow>
         </TableHead>
         <TableBody/>
-          <TableCell><Typography variant="subheading">contents</Typography></TableCell>
-          <TableCell/>
-          <TableCell/>
-          <TableCell/>
-          <TableCell/>
+          <TableCell><Typography variant="title"> { props.id }</Typography></TableCell>
+          <TableCell><Typography variant="title"> { props.name } </Typography></TableCell>
+          <TableCell><Typography variant="title"> { props.members } </Typography></TableCell>
+          <TableCell><Typography variant="title"> { props.price } </Typography></TableCell>
+          <TableCell><Typography variant="title"> { props.dayTrend } </Typography></TableCell>
+          <TableCell><Typography variant="title"> { props.day30 } </Typography></TableCell>
       </Table>
     </Paper>
   </div>
