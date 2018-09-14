@@ -1,4 +1,4 @@
-import { FormControl } from '@material-ui/core';
+// import { FormControl } from '@material-ui/core';
 import TextField from '@material-ui/core/TextField';
 // import * as PropTypes from 'prop-types';
 import * as React from 'react';
@@ -15,7 +15,7 @@ class ComposedTextField extends React.Component {
   public render() {
     
     return (
-      <FormControl >
+      <form >
             <TextField
             id="full-width"
             label="Item"
@@ -26,10 +26,11 @@ class ComposedTextField extends React.Component {
             placeholder="Item:"
             helperText="Enter a GE Item"
             margin="normal"
-            onChange={this.handleChange}
+            value={this.state.name}
+            onChange={this.getItem}
             />
             
-      </FormControl>
+      </form>
       
     );
   }
