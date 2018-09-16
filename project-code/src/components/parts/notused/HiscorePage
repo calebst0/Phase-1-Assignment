@@ -1,0 +1,132 @@
+import * as React from "react";
+import HiscoreInput from './parts/HiscoreInput';
+import HiscoreTable from './parts/HiscoreTable';
+// 'http://services.runescape.com/m=hiscore_oldschool' + '_acctype' + '/index_lite.ws?player='+playername HISCORE API
+
+class HiscorePage extends React.Component <{}> {
+        
+        public state = {
+                totallevel: undefined, totalxp: undefined,
+                // tslint:disable-next-line:object-literal-sort-keys
+                attklvl: undefined, attkxp: undefined,
+                deflvl:undefined, defxp: undefined,
+                strlvl: undefined, strxp: undefined,
+                hplvl: undefined, hpxp: undefined,
+                rangelvl: undefined, rangexp: undefined,
+                prayerlvl: undefined, prayerxp: undefined,
+                magelvl: undefined, magexp: undefined,
+                cookinglvl: undefined, cookingxp: undefined,
+                wclvl: undefined, wcxp: undefined,
+                fletchinglvl: undefined, fletchingxp: undefined,
+                fishinglvl: undefined, fishingxp: undefined,
+                firemakinglvl: undefined, firemakingxp: undefined,
+                craftinglvl: undefined, craftingxp: undefined,
+                smithinglvl: undefined, smithingxp: undefined,
+                mininglvl: undefined, miningxp: undefined,
+                herblorelvl: undefined, herblorexp: undefined,
+                agilitylvl: undefined, agilityxp: undefined,
+                thievinglvl: undefined, thievingxp: undefined,
+                slayerlvl: undefined, slayerxp: undefined,
+                farminglvl: undefined, farmingxp: undefined,
+                rclvl: undefined, rcxp: undefined,
+                hunterlvl: undefined, hunterxp: undefined,
+                constructionlvl: undefined, constructionxp: undefined
+              }
+
+        public getHiscore = async (e:any) => {
+                e.preventDefault(e);
+        
+                /*let testdata:any=
+                {
+                        "totallevel": "", "totalxp": "",
+                        // tslint:disable-next-line:object-literal-sort-keys
+                        "attklvl": "", "attkxp": "",
+                        "deflvl": "", "defxp": "",
+                        "strlvl": "", "strxp": "",
+                        "hplvl": "", "hpxp": "",
+                        "rangelvl": "", "rangexp": "",
+                        "prayerlvl": "", "prayerxp": "",
+                        "magelvl": "", "magexp": "",
+                        "cookinglvl": "", "cookingxp": "",
+                        "wclvl": "", "wcxp": "",
+                        "fletchinglvl": "", "fletchingxp": "",
+                        "fishinglvl": "", "fishingxp": "",
+                        "firemakinglvl": "", "firemakingxp": "",
+                        "craftinglvl": "", "craftingxp": "",
+                        "smithinglvl": "", "smithingxp": "",
+                        "mininglvl": "", "miningxp": "",
+                        "herblorelvl": "", "herblorexp": "",
+                        "agilitylvl": "", "agilityxp": "",
+                        "thievinglvl": "", "thievingxp": "",
+                        "slayerlvl": "", "slayerxp": "",
+                        "farminglvl": "", "farmingxp": "",
+                        "rclvl": "", "rcxp": "",
+                        "hunterlvl": "", "hunterxp": "",
+                        "constructionlvl": "", "constructionxp": ""
+                };*/
+        
+                const pname = e.target.elements.playername.value;
+                const apiUrl = 'https://cors-anywhere.herokuapp.com/' + 'secure.runescape.com/m=hiscore_oldschool/index_lite.ws?player='+ pname;
+               
+                const apiCall = await fetch(apiUrl, {headers :  {"Content-Type": "application/json","Access-Control-Allow-Origin": "*"}});
+                const data = await apiCall;
+        
+                // const testing = {"id": data.item.id, "name": data.item.name, "members" : data.item.members, "price" : data.item.current.price, "daytrend" : data.item.today.price, "day30" : data.item.day30.change };
+        
+                /*if(data != null)
+                {
+                  testdata = this.state.rows;
+                  testdata.push(testing);
+                }*/
+
+                if (pname) {
+                  this.setState({
+                        totallevel: data[1], totalxp: data[2],
+                        // tslint:disable-next-line:object-literal-sort-keys
+                        attklvl: undefined, attkxp: undefined,
+                        deflvl:undefined, defxp: undefined,
+                        strlvl: undefined, strxp: undefined,
+                        hplvl: undefined, hpxp: undefined,
+                        rangelvl: undefined, rangexp: undefined,
+                        prayerlvl: undefined, prayerxp: undefined,
+                        magelvl: undefined, magexp: undefined,
+                        cookinglvl: undefined, cookingxp: undefined,
+                        wclvl: undefined, wcxp: undefined,
+                        fletchinglvl: undefined, fletchingxp: undefined,
+                        fishinglvl: undefined, fishingxp: undefined,
+                        firemakinglvl: undefined, firemakingxp: undefined,
+                        craftinglvl: undefined, craftingxp: undefined,
+                        smithinglvl: undefined, smithingxp: undefined,
+                        mininglvl: undefined, miningxp: undefined,
+                        herblorelvl: undefined, herblorexp: undefined,
+                        agilitylvl: undefined, agilityxp: undefined,
+                        thievinglvl: undefined, thievingxp: undefined,
+                        slayerlvl: undefined, slayerxp: undefined,
+                        farminglvl: undefined, farmingxp: undefined,
+                        rclvl: undefined, rcxp: undefined,
+                        hunterlvl: undefined, hunterxp: undefined,
+                        constructionlvl: undefined, constructionxp: undefined
+                  });
+                } else {
+                  this.setState({
+                    
+                  });
+                }
+        
+                // tslint:disable-next-line:no-console
+                console.log(data);
+            }
+
+        public render() {
+                return (
+                        <div className="centreText">
+                                <HiscoreInput getHiscore={this.getHiscore}/>
+                                <HiscoreTable />
+                        </div>
+                );
+        }
+
+        
+}
+
+export default HiscorePage

@@ -1,0 +1,14 @@
+import * as React from "react";
+
+const HiscoreInput = (props:any) => 
+(
+
+	<form onSubmit={props.getHiscore}>
+		<div margin-top={10000}>Enter a player name to find Stats</div>
+		<input type="text" name="playername" placeholder="Enter Player Name" />
+		<div className='centreText'><button>Find Hiscores</button></div>
+	</form>
+	
+);
+
+export default HiscoreInput;

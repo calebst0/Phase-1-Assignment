@@ -16,26 +16,14 @@ const styles  = (theme:any) => createStyles({
   },
 });
 
-function FirstComponent(props:any) {
+function ItemTable(props:any) {
+
   const { classes } = props;
-  
+
   return (
-  /*<div>
-    <p>item id: <span>{props.id}</span> </p>
-    <p>name: <span>{props.name}</span> </p>
-    <p>members: <span>{props.members}</span> </p>
-    <p>price: <span>{props.price}</span> </p>
-    <p>day trend: <span>{props.dayTrend}</span> </p>
-    <p>30 day trend: <span>{props.day30}</span> </p>
-  </div>*/
-  
-  
-  
-  
-  
     <div className="centreText">  
     <Paper className={classes.root}>
-      <Table className={classes.table} >
+      <Table className={classes.table}>
         <TableHead>
           <TableRow>
             <TableCell ><Typography variant="title" className="itemID">Item ID</Typography></TableCell>
@@ -46,17 +34,25 @@ function FirstComponent(props:any) {
             <TableCell ><Typography variant="title" className="30Change">30 Day Change</Typography></TableCell>
           </TableRow>
         </TableHead>
-        <TableBody/>
-          <TableCell><Typography variant="title"> { props.id }</Typography></TableCell>
-          <TableCell><Typography variant="title"> { props.name } </Typography></TableCell>
-          <TableCell><Typography variant="title"> { props.members } </Typography></TableCell>
-          <TableCell><Typography variant="title"> { props.price } </Typography></TableCell>
-          <TableCell><Typography variant="title"> { props.dayTrend } </Typography></TableCell>
-          <TableCell><Typography variant="title"> { props.day30 } </Typography></TableCell>
+        <TableBody>
+            {props.rows.map((row:any) => {
+              return (
+                <TableRow key={row.id}>
+                  <TableCell><Typography variant="title"> { row.id }</Typography></TableCell>
+                  <TableCell><Typography variant="title"> { row.name } </Typography></TableCell>
+                  <TableCell><Typography variant="title"> { row.members } </Typography></TableCell>
+                  <TableCell><Typography variant="title"> { row.price } </Typography></TableCell>
+                  <TableCell><Typography variant="title"> { row.daytrend } </Typography></TableCell>
+                  <TableCell><Typography variant="title"> { row.day30 } </Typography></TableCell>
+                </TableRow>
+              );
+            })}     
+        </TableBody>
       </Table>
     </Paper>
+    <div>{ props.error }</div>
   </div>
   );
 }
 
-export default withStyles(styles)(FirstComponent);
+export default withStyles(styles)(ItemTable);

@@ -1,0 +1,73 @@
+import { Paper, Table,  TableCell, TableHead, TableRow, Typography } from "@material-ui/core";
+import { createStyles, withStyles  } from '@material-ui/core/styles';
+import * as React from "react";
+
+const styles  = (theme:any) => createStyles({
+  root: {
+    marginLeft: '100px',
+    marginRight: '100px',
+    marginTop: theme.spacing.unit * 3,
+    overflowX: 'auto',
+  },
+  table: {
+    minWidth: 400,
+  },
+});
+
+function HiscoreTable(props:any) {
+
+  const { classes } = props;
+
+  return (
+    <div className="centreText">  
+    <Paper className={classes.root}>
+      <Table className={classes.table}>
+        <TableHead>
+          <TableRow>
+            <TableCell ><Typography variant="title" className="itemID">Attack</Typography></TableCell>
+            <TableCell ><Typography variant="title" className="name">Defence</Typography></TableCell>
+            <TableCell ><Typography variant="title" className="Members">Strength</Typography></TableCell>
+            <TableCell ><Typography variant="title" className="Price">Hitpoints</Typography></TableCell>
+            <TableCell ><Typography variant="title" className="dayChange">Range</Typography></TableCell>
+            <TableCell ><Typography variant="title" className="30Change">Prayer</Typography></TableCell>
+            <TableCell ><Typography variant="title" className="30Change">Mage</Typography></TableCell>
+            <TableCell ><Typography variant="title" className="30Change">Cooking</Typography></TableCell>
+            <TableCell ><Typography variant="title" className="30Change">Woodcutting</Typography></TableCell>
+            <TableCell ><Typography variant="title" className="30Change">Fletching</Typography></TableCell>
+            <TableCell ><Typography variant="title" className="30Change">Fishing</Typography></TableCell>
+            <TableCell ><Typography variant="title" className="30Change">Firemaking</Typography></TableCell>
+            <TableCell ><Typography variant="title" className="30Change">Crafting</Typography></TableCell>
+            <TableCell ><Typography variant="title" className="30Change">Smithing</Typography></TableCell>
+            <TableCell ><Typography variant="title" className="30Change">Mining</Typography></TableCell>
+            <TableCell ><Typography variant="title" className="30Change">Herblore</Typography></TableCell>
+            <TableCell ><Typography variant="title" className="30Change">Agility</Typography></TableCell>
+            <TableCell ><Typography variant="title" className="30Change">Thieving</Typography></TableCell>
+            <TableCell ><Typography variant="title" className="30Change">Slayer</Typography></TableCell>
+            <TableCell ><Typography variant="title" className="30Change">Farming</Typography></TableCell>
+            <TableCell ><Typography variant="title" className="30Change">Runecrafting</Typography></TableCell>
+            <TableCell ><Typography variant="title" className="30Change">Hunter</Typography></TableCell>
+            <TableCell ><Typography variant="title" className="30Change">Construction</Typography></TableCell>
+          </TableRow>
+        </TableHead>
+        
+      </Table>
+    </Paper>
+    <div>{ props.error }</div>
+  </div>
+  );
+}
+/*<TableBody>
+            {props.rows.map((row:any) => {
+              return (
+                <TableRow key={row.id}>
+                  <TableCell><Typography variant="title"> { row.id }</Typography></TableCell>
+                  <TableCell><Typography variant="title"> { row.name } </Typography></TableCell>
+                  <TableCell><Typography variant="title"> { row.members } </Typography></TableCell>
+                  <TableCell><Typography variant="title"> { row.price } </Typography></TableCell>
+                  <TableCell><Typography variant="title"> { row.daytrend } </Typography></TableCell>
+                  <TableCell><Typography variant="title"> { row.day30 } </Typography></TableCell>
+                </TableRow>
+              );
+            })}     
+        </TableBody>*/
+export default withStyles(styles)(HiscoreTable);

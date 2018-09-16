@@ -4,7 +4,7 @@ import App from './App'
 
 import GEPage from './components/GEPage';
 import Header from './components/Header';
-import SecondComponent from './components/SecondComponent';
+import ItemIDPage from './components/ItemIDPage'
 import './css/styles.css';
 
 export const AppRouter: React.StatelessComponent<{}> = () => {
@@ -15,7 +15,7 @@ export const AppRouter: React.StatelessComponent<{}> = () => {
                 <main>
                     <Route exact={true} path="/" component={App} />
                     <Route path="/GEPage" component={GEPage}/>
-                    <Route path="/SecondComponent" component={SecondComponent} />
+                    <Route path="/ItemIDPage" component={ItemIDPage}/>
                     <Redirect from='*' to='/' />
                 </main>
             </div>
