@@ -6,7 +6,7 @@ class App extends React.Component {
 
     return (
       <div className='centreText'>
-        This is a GrandExchange tracker site.
+        ahusdahsdhufasuifduahs.
       </div>
     );
   }
